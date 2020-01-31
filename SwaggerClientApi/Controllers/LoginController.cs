@@ -11,7 +11,8 @@ namespace SwaggerClientApi.Controllers
     {
         [Authorize]
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        [Route("[action]")]
+        public ActionResult<IEnumerable<string>> GetUser()
         {
             var claims = HttpContext.User.Claims;
             var username = claims.FirstOrDefault(c=> c.Type == "name")?.Value;

@@ -35,8 +35,15 @@ namespace SwaggerClientApi
                 c.SwaggerDoc("v1",
                     new Info
                     {
-                        Title = "Swagger Sample API B2C " + Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT"),
-                        Version = "v1"
+                        Title = "Swagger Sample API " ,
+                        Version = "v1",
+                        Description = "A simple example ASP.NET Core Web API B2C "+ Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT"),
+                        Contact = new Contact()
+                        {
+                            Name = "Javier Garcia",
+                            Email = "jgma@kamstrup.com", 
+                            Url = "https://github.com/viviab"
+                        }
                     });
 
                 c.AddSecurityDefinition("Bearer", new ApiKeyScheme()
@@ -94,7 +101,8 @@ namespace SwaggerClientApi
 
             app.UseAuthentication();
             app.UseMvc();
+            app.UseStaticFiles();
 
-            }
+        }
     }
 }
